@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="section-main">
+    <div class="section-main" id="bg1">
 
     </div>
     <div class="section-about">
@@ -15,29 +15,17 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
+
     <script>
-        function greedyJumbotron() {
-    var HEIGHT_CHANGE_TOLERANCE = 100; // Approximately URL bar height in Chrome on tablet
+  var bg = $("#bg1");
 
-    var jumbotron = $(this);
-    var viewportHeight = $(window).height();
-    console.log(viewportHeight);
-
-    $(window).resize(function () {
-        if (Math.abs(viewportHeight - $(window).height()) > HEIGHT_CHANGE_TOLERANCE) {
-            viewportHeight = $(window).height();
-            update();
-        }
-    });
-
-    function update() {
-        jumbotron.css('height', viewportHeight + 'px');
-    }
-
-    update();
+function resizeBackground() {
+    bg.height( $(window).height() + 60);
+    console.log('i was run!')
 }
 
-$('.section-main').each(greedyJumbotron);
+$(window).resize(resizeBackground);
+resizeBackground();
     </script>
 </body>
 </html>
